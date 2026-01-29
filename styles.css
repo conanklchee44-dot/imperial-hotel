@@ -22,6 +22,12 @@
     gap: 10px;
     font-size: 18px;
 }
+
+#booking-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
 .nav-link {
     display: inline-block;
 }
@@ -36,4 +42,15 @@
 }
 .nav-link a:hover {
     background-color: royalblue;
+}
+
+.room-btn {
+    background-color: lightgray;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
 }

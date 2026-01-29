@@ -6,7 +6,7 @@ function Room(name, price, occupied=false) {
 }
 
 Room.prototype = {
-    displayInfo: () => `${this.name} - $${this.price} per night - ${this.occupied ? 'Occupied' : 'Available'}`
+    displayInfo: function() { return `${this.name} - $${this.price} per night - ${this.occupied ? 'Occupied' : 'Available'}` }
 }
 // init ROOMS array
 const ROOMS = [];
@@ -20,6 +20,13 @@ function initRooms() {
 }
 function createRoom(amount, name, price) {
     for (let i = 0; i < amount; i++) { ROOMS.push(new Room(name, price)); }
-    BOOKING_LIST.appendChild(document.createElement('li')).innerText = `${name} x ${amount}`;
+    BOOKING_LIST.appendChild(document.createElement('li')).innerHTML = 
+    `<button class="room-btn">${name} x ${amount}</button>`;
 }
 initRooms();
+const ROOM_BUTTONS = document.querySelectorAll('.room-btn');
+ROOM_BUTTONS.forEach((button, index) => {
+    button.addEventListener('click', () => {
+        alert(ROOMS[index].displayInfo());
+    });
+});
