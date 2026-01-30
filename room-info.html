@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Rooms</title>
+</head>
+<body>
+    <div id="topbar">
+        <h1>Imperial Hotel</h1>
+        <ul id="navigation">
+            <li class="nav-link"><a href="main.html">Home</a></li>
+            <li class="nav-link"><a href="rooms.html">Rooms</a></li>
+            <li class="nav-link"><a href="bookings.html">Bookings</a></li>
+            <li class="nav-link"><a href="services.html">Services & Facilities</a></li>
+            <li class="nav-link"><a href="account.html">Account Settings</a></li>
+        </ul>
+    </div>
+    <div id="room-details">
+        <h2 id="room-name"></h2>
+        <p id="room-price"></p>
+        <p id="room-status"></p>
+        <div id="room-description"></div>
+    </div>
+    <script>
+        // get room data
+        const URL_PARAMS = new URLSearchParams(window.location.search);
+        const ROOM_NAME = URL_PARAMS.get('name');
+        const ROOM_PRICE = URL_PARAMS.get('price');
+        const ROOM_OCCUPIED = URL_PARAMS.get('occupied') === 'true';
+        const ROOM_DESCRIPTION = URL_PARAMS.get('description');
+        if (ROOM_NAME && ROOM_PRICE) {
+            document.getElementById('room-name').textContent = ROOM_NAME;
+            document.getElementById('room-price').textContent = `$${ROOM_PRICE} per night`;
+            document.getElementById('room-status').textContent = ROOM_OCCUPIED ? 'Occupied' : 'Available';
+            document.getElementById('room-description').textContent = ROOM_DESCRIPTION;
+        }
+    </script>
+</body>
+</html>

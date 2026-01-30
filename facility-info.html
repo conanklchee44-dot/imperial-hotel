@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Facility Info</title>
+</head>
+<body>
+    <div id="topbar">
+        <h1>Imperial Hotel</h1>
+        <ul id="navigation">
+            <li class="nav-link"><a href="main.html">Home</a></li>
+            <li class="nav-link"><a href="rooms.html">Rooms</a></li>
+            <li class="nav-link"><a href="bookings.html">Bookings</a></li>
+            <li class="nav-link"><a href="services.html">Services & Facilities</a></li>
+            <li class="nav-link"><a href="account.html">Account Settings</a></li>
+        </ul>
+    </div>
+    <div id="facility-details">
+        <h2 id="facility-name"></h2>
+        <p id="facility-hours"></p>
+        <p id="facility-location"></p>
+        <div id="facility-description"></div>
+    </div>
+    <script>
+        // get facility data
+        const URL_PARAMS = new URLSearchParams(window.location.search);
+        const FACILITY_NAME = URL_PARAMS.get('name');
+        const FACILITY_HOURS = URL_PARAMS.get('hours');
+        const FACILITY_LOCATION = URL_PARAMS.get('location');
+        const FACILITY_DESCRIPTION = URL_PARAMS.get('description');
+        
+        if (FACILITY_NAME) {
+            document.getElementById('facility-name').textContent = FACILITY_NAME;
+            document.getElementById('facility-hours').textContent = FACILITY_HOURS || '';
+            document.getElementById('facility-location').textContent = FACILITY_LOCATION || '';
+            document.getElementById('facility-description').textContent = FACILITY_DESCRIPTION || '';
+        }
+    </script>
+</body>
+</html>

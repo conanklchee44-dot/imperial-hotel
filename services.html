@@ -11,11 +11,22 @@
         <h1>Imperial Hotel</h1>
         <ul id="navigation">
             <li class="nav-link"><a href="main.html">Home</a></li>
-            <li class="nav-link"><a href="bookings.html">Bookings</a></li>
             <li class="nav-link"><a href="rooms.html">Rooms</a></li>
+            <li class="nav-link"><a href="bookings.html">Bookings</a></li>
+            <li class="nav-link"><a href="services.html">Services & Facilities</a></li>
             <li class="nav-link"><a href="account.html">Account Settings</a></li>
         </ul>
     </div>
-    <script src="script.js"></script>
+    <div id="services-container">
+        <h1 id="services-title">Services & Facilities</h1>
+        <div id="tabs">
+            <button class="tab-btn active" data-tab="facilities">Facilities</button>
+            <button class="tab-btn" data-tab="services">Services</button>
+            <button class="tab-btn" data-tab="dining">Dining</button>
+            <button class="tab-btn" data-tab="recreation">Recreation</button>
+        </div>
+        <div id="cards-container"></div>
+    </div>
+    <script src="facility-script.js"></script>
 </body>
 </html>
