@@ -560,3 +560,187 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* Account Settings Page Styles */
+#account-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: 'Segoe UI';
+}
+
+#account-title {
+    font-size: 36px;
+    font-weight: lighter;
+    color: cornflowerblue;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.account-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.account-section {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.account-section:nth-child(1) { animation-delay: 0s; }
+.account-section:nth-child(2) { animation-delay: 0.1s; }
+.account-section:nth-child(3) { animation-delay: 0.2s; }
+.account-section:nth-child(4) { animation-delay: 0.3s; }
+
+.section-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: cornflowerblue;
+    margin: 0 0 25px 0;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.account-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="password"],
+.form-group textarea,
+.form-group select {
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Segoe UI';
+    transition: all 0.3s ease;
+    background-color: #fafafa;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: cornflowerblue;
+    background-color: white;
+    box-shadow: 0 0 0 3px rgba(100, 149, 237, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.checkbox-group {
+    flex-direction: row;
+    align-items: center;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: cornflowerblue;
+}
+
+.checkbox-group span {
+    font-size: 16px;
+    color: #333;
+}
+
+.save-btn {
+    background-color: cornflowerblue;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Segoe UI';
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+.save-btn:hover {
+    background-color: royalblue;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(100, 149, 237, 0.4);
+}
+
+.danger-section {
+    border: 2px solid #ffebee;
+}
+
+.danger-section .section-title {
+    color: #d32f2f;
+    border-bottom-color: #ffcdd2;
+}
+
+.warning-text {
+    color: #d32f2f;
+    font-size: 14px;
+    margin: 0;
+    padding: 12px;
+    background-color: #ffebee;
+    border-radius: 6px;
+    border-left: 4px solid #d32f2f;
+}
+
+.delete-btn {
+    background-color: #d32f2f;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Segoe UI';
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #b71c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.4);
+}
+
+@media (max-width: 768px) {
+    #account-container {
+        padding: 10px;
+    }
+    
+    .account-section {
+        padding: 20px;
+    }
+}
