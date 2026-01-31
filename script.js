@@ -17,28 +17,22 @@ if (calendarDays) {
         const year = date.getFullYear();
         const month = date.getMonth();
         
-        // Set header
         const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
                            'July', 'August', 'September', 'October', 'November', 'December'];
         calendarMonthYear.textContent = `${monthNames[month]} ${year}`;
         
-        // Clear calendar
         calendarDays.innerHTML = '';
         
-        // Get first day of month and number of days
         const firstDay = new Date(year, month, 1).getDay();
         const daysInMonth = new Date(year, month + 1, 0).getDate();
         const today = new Date();
         today.setHours(0, 0, 0, 0);
-        
-        // Add empty cells for days before month starts
         for (let i = 0; i < firstDay; i++) {
             const emptyDay = document.createElement('div');
             emptyDay.className = 'calendar-day empty';
             calendarDays.appendChild(emptyDay);
         }
         
-        // Add days
         for (let day = 1; day <= daysInMonth; day++) {
             const dayEl = document.createElement('div');
             dayEl.className = 'calendar-day';
@@ -46,32 +40,15 @@ if (calendarDays) {
             
             const cellDate = new Date(year, month, day);
             cellDate.setHours(0, 0, 0, 0);
+            if (cellDate < today) dayEl.classList.add('disabled');
+            else dayEl.addEventListener('click', () => selectDate(cellDate, dayEl));
             
-            // Mark past dates as disabled
-            if (cellDate < today) {
-                dayEl.classList.add('disabled');
-            } else {
-                dayEl.addEventListener('click', () => selectDate(cellDate, dayEl));
-            }
+            if (selectedCheckin && cellDate.getTime() === selectedCheckin.getTime()) dayEl.classList.add('selected', 'checkin');
+            if (selectedCheckout && cellDate.getTime() === selectedCheckout.getTime()) dayEl.classList.add('selected', 'checkout');
             
-            // Highlight selected dates
-            if (selectedCheckin && cellDate.getTime() === selectedCheckin.getTime()) {
-                dayEl.classList.add('selected', 'checkin');
-            }
-            if (selectedCheckout && cellDate.getTime() === selectedCheckout.getTime()) {
-                dayEl.classList.add('selected', 'checkout');
-            }
-            
-            // Highlight range between check-in and check-out
             if (selectedCheckin && selectedCheckout && 
-                cellDate > selectedCheckin && cellDate < selectedCheckout) {
-                dayEl.classList.add('in-range');
-            }
-            
-            // Mark today
-            if (cellDate.getTime() === today.getTime()) {
-                dayEl.classList.add('today');
-            }
+                cellDate > selectedCheckin && cellDate < selectedCheckout) dayEl.classList.add('in-range');
+            if (cellDate.getTime() === today.getTime()) dayEl.classList.add('today');
             
             calendarDays.appendChild(dayEl);
         }
@@ -79,7 +56,6 @@ if (calendarDays) {
 
     function selectDate(date, element) {
         if (!selectedCheckin || (selectedCheckin && selectedCheckout)) {
-            // Start new selection
             selectedCheckin = date;
             selectedCheckout = null;
             checkinDateEl.textContent = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
@@ -87,7 +63,6 @@ if (calendarDays) {
             nightsCountEl.textContent = '0';
             confirmBookingBtn.disabled = true;
         } else if (date > selectedCheckin) {
-            // Set checkout
             selectedCheckout = date;
             checkoutDateEl.textContent = date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
             const nights = Math.ceil((selectedCheckout - selectedCheckin) / (1000 * 60 * 60 * 24));
