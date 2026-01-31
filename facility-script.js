@@ -14,12 +14,14 @@ if (CARDS_CONTAINER) {
                 name: 'Swimming Pool',
                 hours: '6:00 AM - 10:00 PM',
                 location: 'Rooftop',
+                image: 'swimmingpool.jpg',
                 description: 'Olympic-sized heated pool with stunning city views. Pool bar and lounging area available.'
             },
             {
                 name: 'Spa & Wellness',
                 hours: '9:00 AM - 9:00 PM',
                 location: '2nd Floor',
+                image: 'spa.jpg',
                 description: 'Full-service spa offering massages, facials, body treatments, and wellness therapies.'
             },
             {
@@ -60,12 +62,14 @@ if (CARDS_CONTAINER) {
                 name: 'Imperial Restaurant',
                 hours: '6:30 AM - 11:00 PM',
                 location: 'Ground Floor',
+                image: 'finedining.jpg',
                 description: 'Fine dining experience featuring international cuisine and local specialties. Breakfast buffet daily.'
             },
             {
                 name: 'Sky Lounge Bar',
                 hours: '5:00 PM - 2:00 AM',
                 location: 'Rooftop',
+                image: 'bar.jpg',
                 description: 'Signature cocktails and premium spirits with panoramic views. Live music on weekends.'
             },
             {
@@ -73,6 +77,12 @@ if (CARDS_CONTAINER) {
                 hours: '7:00 AM - 6:00 PM',
                 location: 'Lobby Level',
                 description: 'Casual dining and coffee shop. Fresh pastries, sandwiches, and specialty coffees.'
+            },
+            {
+                name: 'Buffet Brunch',
+                hours: '10:00 AM - 2:00 PM (Weekends)',
+                location: 'Imperial Restaurant',
+                description: 'Lavish buffet brunch featuring a variety of international dishes, fresh seafood, and decadent desserts.'
             }
         ],
         recreation: [
@@ -80,6 +90,7 @@ if (CARDS_CONTAINER) {
                 name: 'Tennis Courts',
                 hours: '7:00 AM - 8:00 PM',
                 location: 'Recreation Area',
+                image: 'tenniscourt.jpg',
                 description: 'Two professional tennis courts. Equipment rental and lessons available.'
             },
             {
@@ -111,7 +122,8 @@ if (CARDS_CONTAINER) {
         
         const moreBtn = card.querySelector('.card-more-btn');
         moreBtn.addEventListener('click', () => {
-            window.location.href = `facility-info.html?name=${encodeURIComponent(facility.name)}&hours=${encodeURIComponent(facility.hours)}&location=${encodeURIComponent(facility.location)}&description=${encodeURIComponent(facility.description)}`;
+            const imageParam = facility.image ? `&image=${encodeURIComponent(facility.image)}` : '';
+            window.location.href = `facility-info.html?name=${encodeURIComponent(facility.name)}&hours=${encodeURIComponent(facility.hours)}&location=${encodeURIComponent(facility.location)}&description=${encodeURIComponent(facility.description)}${imageParam}`;
         });
         
         return card;

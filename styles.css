@@ -29,6 +29,89 @@
     margin: 20px 0;
 }
 
+#rooms-cards-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.room-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 15px 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    animation: cardFadeIn 0.5s ease-out forwards;
+    opacity: 0;
+    height: 80px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.room-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.room-card .card-title {
+    font-family: 'Segoe UI';
+    font-weight: 600;
+    font-size: 20px;
+    color: cornflowerblue;
+    margin: 0;
+    min-width: 180px;
+}
+
+.room-card .card-hours {
+    font-family: 'Segoe UI';
+    font-size: 14px;
+    color: royalblue;
+    margin: 0;
+    font-weight: 500;
+    min-width: 120px;
+}
+
+.room-card .card-location {
+    font-family: 'Segoe UI';
+    font-size: 14px;
+    color: gray;
+    margin: 0;
+    min-width: 140px;
+}
+
+.room-card .card-preview {
+    font-family: 'Segoe UI';
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+    flex: 1;
+}
+
+.room-card .card-more-btn {
+    background-color: cornflowerblue;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Segoe UI';
+    transition: all 0.3s ease;
+    margin-left: auto;
+}
+
+.room-card .card-more-btn:hover {
+    background-color: royalblue;
+    transform: translateX(5px);
+}
+
 #our-rooms {
     font-family: 'Segoe UI';
     font-weight: lighter;
@@ -274,12 +357,22 @@
     padding: 40px;
 }
 
+.facility-image-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
 #facility-name {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
     font-family: 'Segoe UI';
     font-weight: lighter;
     font-size: 48px;
-    color: royalblue;
-    margin-bottom: 20px;
+    color: white;
+    margin: 0;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
     animation: fadeInUp 0.6s ease-out forwards;
     opacity: 0;
 }
@@ -311,6 +404,15 @@
     color: #555;
     line-height: 1.8;
     animation: fadeInUp 0.6s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+#facility-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    animation: fadeInUp 0.6s ease-out forwards;
     opacity: 0;
 }
 

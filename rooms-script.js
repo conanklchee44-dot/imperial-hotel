@@ -1,6 +1,6 @@
-const BOOKING_LIST = document.getElementById('booking-list');
+const ROOMS_CARDS_CONTAINER = document.getElementById('rooms-cards-container');
 
-if (BOOKING_LIST) {
+if (ROOMS_CARDS_CONTAINER) {
     function Room(name, price, occupied=false) {
         this.name = name;
         this.price = price;
@@ -22,14 +22,6 @@ if (BOOKING_LIST) {
     }
     
     function initRooms() {
-        createRoom(30, 'Garden View', 499); // 30 GARDEN VIEW rooms
-        createRoom(25, 'Sea View', 599); // 25 SEA VIEW rooms
-        createRoom(25, 'Executive Room', 799); // 25 EXECUTIVE rooms
-        createRoom(10, 'Imperial Suite', 999); // 10 IMPERIAL SUITE rooms
-        createRoom(5, 'Deluxe Suite', 1499); // 5 DELUXE SUITE rooms
-        createRoom(3, 'Presidential Suite', 1999); // 3 PRESIDENTIAL SUITE rooms
-        
-        // Set descriptions after rooms are created
         setRoomDescription('Garden View', 
         'Enjoy beautiful views of our landscaped gardens from your private balcony.');
         setRoomDescription('Sea View', 
@@ -42,21 +34,37 @@ if (BOOKING_LIST) {
         'Elegant suite featuring a master bedroom, living room, and dining area.');
         setRoomDescription('Presidential Suite', 
         'The ultimate luxury experience with panoramic views and personal butler service.');
+        
+        createRoom(30, 'Garden View', 499); // 30 GARDEN VIEW rooms
+        createRoom(25, 'Sea View', 599); // 25 SEA VIEW rooms
+        createRoom(25, 'Executive Room', 799); // 25 EXECUTIVE rooms
+        createRoom(10, 'Imperial Suite', 999); // 10 IMPERIAL SUITE rooms
+        createRoom(5, 'Deluxe Suite', 1499); // 5 DELUXE SUITE rooms
+        createRoom(3, 'Presidential Suite', 1999); // 3 PRESIDENTIAL SUITE rooms
     }
     function createRoom(amount, name, price) {
-        for (let i = 0; i < amount; i++) { ROOMS.push(new Room(name, price)); }
-        const li = BOOKING_LIST.appendChild(document.createElement('li'));
-        const button = document.createElement('button');
-        button.className = 'room-btn';
-        button.textContent = `${name} x ${amount}`;
-        button.dataset.name = name;
-        button.dataset.price = price;
-        button.dataset.occupied = false;
-        button.addEventListener('click', () => {
-            const description = ROOM_DESCRIPTIONS[name] || '';
+        const description = ROOM_DESCRIPTIONS[name] || '';
+        
+        const card = document.createElement('div');
+        card.className = 'room-card';
+        
+        const status = `${amount} rooms available`;
+        const preview = description.substring(0, 60) + '...';
+        
+        card.innerHTML = `
+            <h3 class="card-title">${name}</h3>
+            <p class="card-hours">$${price} per night</p>
+            <p class="card-location">${status}</p>
+            <p class="card-preview">${preview}</p>
+            <button class="card-more-btn">more >></button>
+        `;
+        
+        const moreBtn = card.querySelector('.card-more-btn');
+        moreBtn.addEventListener('click', () => {
             window.location.href = `room-info.html?name=${encodeURIComponent(name)}&price=${price}&occupied=false&description=${encodeURIComponent(description)}`;
         });
-        li.appendChild(button);
+        
+        ROOMS_CARDS_CONTAINER.appendChild(card);
     }
     initRooms();
 }

@@ -18,7 +18,10 @@
         </ul>
     </div>
     <div id="facility-details">
-        <h2 id="facility-name"></h2>
+        <div class="facility-image-container">
+            <img id="facility-image" src="" alt="Facility Image">
+            <h2 id="facility-name"></h2>
+        </div>
         <p id="facility-hours"></p>
         <p id="facility-location"></p>
         <div id="facility-description"></div>
@@ -30,12 +33,19 @@
         const FACILITY_HOURS = URL_PARAMS.get('hours');
         const FACILITY_LOCATION = URL_PARAMS.get('location');
         const FACILITY_DESCRIPTION = URL_PARAMS.get('description');
+        const FACILITY_IMAGE = URL_PARAMS.get('image');
         
         if (FACILITY_NAME) {
             document.getElementById('facility-name').textContent = FACILITY_NAME;
             document.getElementById('facility-hours').textContent = FACILITY_HOURS || '';
             document.getElementById('facility-location').textContent = FACILITY_LOCATION || '';
             document.getElementById('facility-description').textContent = FACILITY_DESCRIPTION || '';
+            
+            const imageElement = document.getElementById('facility-image');
+            if (FACILITY_IMAGE) {
+                imageElement.src = 'files/' + FACILITY_IMAGE;
+                imageElement.style.display = 'block';
+            } else imageElement.style.display = 'none';
         }
     </script>
 </body>
