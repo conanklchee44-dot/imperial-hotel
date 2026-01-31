@@ -61,7 +61,8 @@ if (ROOMS_CARDS_CONTAINER) {
         
         const moreBtn = card.querySelector('.card-more-btn');
         moreBtn.addEventListener('click', () => {
-            window.location.href = `room-info.html?name=${encodeURIComponent(name)}&price=${price}&occupied=false&description=${encodeURIComponent(description)}`;
+            const imageParam = ''; // add image if needed in future
+            window.location.href = `facility-info.html?name=${encodeURIComponent(name)}&hours=${encodeURIComponent('$' + price + ' per night')}&location=${encodeURIComponent(status)}&description=${encodeURIComponent(description)}${imageParam}`;
         });
         
         ROOMS_CARDS_CONTAINER.appendChild(card);

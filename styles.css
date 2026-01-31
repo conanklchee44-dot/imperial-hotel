@@ -38,63 +38,99 @@
     gap: 15px;
 }
 
-.room-card {
+/* Shared card base styles */
+.room-card,
+.facility-card {
     background: white;
     border: 1px solid #e0e0e0;
     border-radius: 12px;
-    padding: 15px 20px;
+    padding: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     animation: cardFadeIn 0.5s ease-out forwards;
     opacity: 0;
+}
+
+.room-card:hover,
+.facility-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Room-specific card layout */
+.room-card {
     height: 80px;
     width: 100%;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     gap: 20px;
+    padding: 15px 20px;
 }
 
 .room-card:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
 }
 
 .room-card .card-title {
-    font-family: 'Segoe UI';
-    font-weight: 600;
     font-size: 20px;
-    color: cornflowerblue;
-    margin: 0;
     min-width: 180px;
 }
 
 .room-card .card-hours {
-    font-family: 'Segoe UI';
-    font-size: 14px;
-    color: royalblue;
-    margin: 0;
-    font-weight: 500;
     min-width: 120px;
 }
 
 .room-card .card-location {
-    font-family: 'Segoe UI';
-    font-size: 14px;
-    color: gray;
-    margin: 0;
     min-width: 140px;
 }
 
 .room-card .card-preview {
-    font-family: 'Segoe UI';
     font-size: 14px;
-    color: #555;
-    margin: 0;
     flex: 1;
 }
 
 .room-card .card-more-btn {
+    margin-left: auto;
+}
+
+/* Facility-specific card layout */
+.facility-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Shared card element styles */
+.card-title {
+    font-family: 'Segoe UI';
+    font-weight: 600;
+    font-size: 24px;
+    color: cornflowerblue;
+    margin: 0 0 10px 0;
+}
+
+.card-hours {
+    font-family: 'Segoe UI';
+    font-size: 14px;
+    color: royalblue;
+    margin: 5px 0;
+    font-weight: 500;
+}
+
+.card-location {
+    font-family: 'Segoe UI';
+    font-size: 14px;
+    color: gray;
+    margin: 5px 0;
+}
+
+.card-preview {
+    font-family: 'Segoe UI';
+    font-size: 15px;
+    color: #555;
+    line-height: 1.5;
+    margin: 15px 0;
+}
+
+.card-more-btn {
     background-color: cornflowerblue;
     color: white;
     border: none;
@@ -104,10 +140,10 @@
     font-size: 14px;
     font-family: 'Segoe UI';
     transition: all 0.3s ease;
-    margin-left: auto;
+    float: right;
 }
 
-.room-card .card-more-btn:hover {
+.card-more-btn:hover {
     background-color: royalblue;
     transform: translateX(5px);
 }
@@ -120,46 +156,6 @@
     margin-bottom: 10px;
 }
 
-#room-name {
-    position: absolute;
-    font-family: 'Segoe UI';
-    font-weight: lighter;
-    top: calc(20% - 42.5px);
-    left: calc(50% - 250px);
-    font-size: 85px;
-    color: royalblue;
-    margin-bottom: 5px;
-    animation: fadeInUp 0.6s ease-out forwards;
-    opacity: 0;
-}
-#room-price {
-    font-family: 'Segoe UI';
-    font-weight: lighter;
-    font-size: 24px;
-    color: gray;
-    margin-bottom: 15px;
-    animation: fadeInUp 0.6s ease-out 0.2s forwards;
-    opacity: 0;
-}
-#room-status {
-    font-family: 'Segoe UI';
-    font-weight: lighter;
-    font-size: 20px;
-    color: darkgray;
-    margin-bottom: 20px;
-    animation: fadeInUp 0.6s ease-out 0.4s forwards;
-    opacity: 0;
-}
-#room-description {
-    font-family: 'Segoe UI';
-    font-weight: lighter;
-    font-size: 18px;
-    color: gray;
-    margin-top: 20px;
-    line-height: 1.6;
-    animation: fadeInUp 0.6s ease-out 0.6s forwards;
-    opacity: 0;
-}
 .nav-link {
     display: inline-block;
 }
@@ -284,71 +280,6 @@
         opacity: 1;
         transform: translateY(0) scale(1);
     }
-}
-
-.facility-card {
-    background: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    animation: cardFadeIn 0.5s ease-out forwards;
-    opacity: 0;
-}
-
-.facility-card:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-    transform: translateY(-5px);
-}
-
-.card-title {
-    font-family: 'Segoe UI';
-    font-weight: 600;
-    font-size: 24px;
-    color: cornflowerblue;
-    margin: 0 0 10px 0;
-}
-
-.card-hours {
-    font-family: 'Segoe UI';
-    font-size: 14px;
-    color: royalblue;
-    margin: 5px 0;
-    font-weight: 500;
-}
-
-.card-location {
-    font-family: 'Segoe UI';
-    font-size: 14px;
-    color: gray;
-    margin: 5px 0;
-}
-
-.card-preview {
-    font-family: 'Segoe UI';
-    font-size: 15px;
-    color: #555;
-    line-height: 1.5;
-    margin: 15px 0;
-}
-
-.card-more-btn {
-    background-color: cornflowerblue;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    font-family: 'Segoe UI';
-    transition: all 0.3s ease;
-    float: right;
-}
-
-.card-more-btn:hover {
-    background-color: royalblue;
-    transform: translateX(5px);
 }
 
 #facility-details {
