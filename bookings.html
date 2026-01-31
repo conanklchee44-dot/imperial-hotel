@@ -18,9 +18,43 @@
         </ul>
     </div>
     <div id="bookings-container">
-        <h2 id="bookings-title">Bookings - </h2>
-        <div id="calendar">
-            <p id="date-p"></p>
+        <h2 id="bookings-title">Make a Reservation</h2>
+        <div class="booking-form-container">
+            <div class="calendar-section">
+                <div class="calendar-header">
+                    <button id="prev-month" class="month-nav-btn">‹</button>
+                    <h3 id="calendar-month-year"></h3>
+                    <button id="next-month" class="month-nav-btn">›</button>
+                </div>
+                <div id="calendar">
+                    <div class="calendar-weekdays">
+                        <div class="weekday">Sun</div>
+                        <div class="weekday">Mon</div>
+                        <div class="weekday">Tue</div>
+                        <div class="weekday">Wed</div>
+                        <div class="weekday">Thu</div>
+                        <div class="weekday">Fri</div>
+                        <div class="weekday">Sat</div>
+                    </div>
+                    <div id="calendar-days" class="calendar-days"></div>
+                </div>
+            </div>
+            <div class="booking-info">
+                <h3>Booking Details</h3>
+                <div class="booking-detail-item">
+                    <label>Check-in Date:</label>
+                    <p id="checkin-date">Select a date</p>
+                </div>
+                <div class="booking-detail-item">
+                    <label>Check-out Date:</label>
+                    <p id="checkout-date">Select a date</p>
+                </div>
+                <div class="booking-detail-item">
+                    <label>Nights:</label>
+                    <p id="nights-count">0</p>
+                </div>
+                <button id="confirm-booking-btn" class="confirm-btn" disabled>Confirm Booking</button>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>

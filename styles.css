@@ -357,3 +357,206 @@
         transform: translateY(0);
     }
 }
+
+/* Bookings Page Styles */
+#bookings-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: 'Segoe UI';
+}
+
+#bookings-title {
+    font-size: 36px;
+    font-weight: lighter;
+    color: cornflowerblue;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.booking-form-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.calendar-section {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: cornflowerblue;
+    margin: 0;
+}
+
+.month-nav-btn {
+    background-color: cornflowerblue;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.month-nav-btn:hover {
+    background-color: royalblue;
+    transform: scale(1.1);
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.weekday {
+    text-align: center;
+    font-weight: 600;
+    color: #666;
+    padding: 10px 0;
+    font-size: 14px;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.calendar-day:not(.disabled):not(.empty):hover {
+    background-color: #e3f2fd;
+    transform: scale(1.05);
+}
+
+.calendar-day.empty {
+    background: transparent;
+    cursor: default;
+}
+
+.calendar-day.disabled {
+    color: #ccc;
+    cursor: not-allowed;
+    background-color: #fafafa;
+}
+
+.calendar-day.today {
+    border: 2px solid cornflowerblue;
+    font-weight: bold;
+}
+
+.calendar-day.selected.checkin {
+    background-color: cornflowerblue;
+    color: white;
+    font-weight: bold;
+}
+
+.calendar-day.selected.checkout {
+    background-color: royalblue;
+    color: white;
+    font-weight: bold;
+}
+
+.calendar-day.in-range {
+    background-color: #bbdefb;
+    color: #1565c0;
+}
+
+.booking-info {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+.booking-info h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: cornflowerblue;
+    margin: 0 0 25px 0;
+}
+
+.booking-detail-item {
+    margin-bottom: 20px;
+}
+
+.booking-detail-item label {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.booking-detail-item p {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+    font-weight: 500;
+}
+
+.confirm-btn {
+    background-color: cornflowerblue;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Segoe UI';
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: auto;
+}
+
+.confirm-btn:hover:not(:disabled) {
+    background-color: royalblue;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(100, 149, 237, 0.4);
+}
+
+.confirm-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .booking-form-container {
+        grid-template-columns: 1fr;
+    }
+}
